@@ -13,7 +13,7 @@ const Main = styled.div`
   background-color: ${({ theme }) => theme.bg};
 `
 const Wrapper = styled.div`
-  
+  color: ${({ theme }) => theme.text};
 `
 
 function App() {

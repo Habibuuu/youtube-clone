@@ -1,11 +1,10 @@
 import styled from "styled-components"
 import BibuTube from "../img/logo.png"
 import { AccountCircleOutlined, ArticleOutlined, ExploreOutlined, FlagOutlined, HelpOutlineOutlined, HistoryOutlined, Home, LibraryMusicOutlined, LiveTvOutlined, MovieOutlined, SettingsBrightnessOutlined, SettingsOutlined, SportsBasketballOutlined, SportsEsportsOutlined, SubscriptionsOutlined, VideoLibraryOutlined } from '@mui/icons-material'
-// import { Link } from "react-router-dom"
 
 const Container = styled.div`
     flex: 1;
-    background-color: ${({theme}) =>theme.bg};
+    background-color: ${({theme}) =>theme.bgLighter};
     height: 100vh;
     color: ${({theme}) =>theme.text};
     position: sticky;
@@ -69,6 +68,7 @@ const Menu = ({ darkMode, setDarkMode }) => {
     const handleMode = () => {
         setDarkMode(!darkMode)
     }
+
     return (
         <Container>
             <Wrapper>
@@ -100,10 +100,10 @@ const Menu = ({ darkMode, setDarkMode }) => {
                 <Hr/>
                 <Login>
                     Sign in to like videos, comment, and subscribe.
-                        <Button>
-                        <AccountCircleOutlined />
+                    <Button>
+                    <AccountCircleOutlined />
                         SIGN IN
-                        </Button>
+                    </Button>
                 </Login>
                 <Hr />
                 <Title>BEST OF BIBUTUBE</Title>
