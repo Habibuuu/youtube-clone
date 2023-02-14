@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import BibuTube from "../img/logo.png"
 import { AccountCircleOutlined, ArticleOutlined, ExploreOutlined, FlagOutlined, HelpOutlineOutlined, HistoryOutlined, Home, LibraryMusicOutlined, LiveTvOutlined, MovieOutlined, SettingsBrightnessOutlined, SettingsOutlined, SportsBasketballOutlined, SportsEsportsOutlined, SubscriptionsOutlined, VideoLibraryOutlined } from '@mui/icons-material'
+import { Link } from "react-router-dom"
 
 const Container = styled.div`
     flex: 1;
@@ -72,10 +73,12 @@ const Menu = ({ darkMode, setDarkMode }) => {
     return (
         <Container>
             <Wrapper>
-                <Logo>
-                    <Img src={BibuTube} />
-                    BibuTube
-                </Logo>
+                <Link to="/" style={{textDecoration: "none", color: "inherit"}}>
+                    <Logo>
+                        <Img src={BibuTube} />
+                        BibuTube
+                    </Logo>
+                </Link>
                 <Item>
                     <Home />
                     Home
