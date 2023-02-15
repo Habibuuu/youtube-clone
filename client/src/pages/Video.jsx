@@ -1,12 +1,12 @@
 import { AddTaskOutlined, ThumbDownAltOutlined, ThumbUpOutlined } from "@mui/icons-material";
 import ReplyIcon from '@mui/icons-material/Reply';
 import styled from "styled-components";
+import Card from "../components/Card";
 import Comments from "../components/Comments";
-
 
 const Container = styled.div`
     display: flex;
-    gap: 24;
+    gap: 24px;
 `
 
 const Content = styled.div`
@@ -162,7 +162,19 @@ const Video = () => {
                 <Comments/>
             </Content>
             <Recomendation>
-                Isi Rekomendasi
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
+                <Card type="sm" />
             </Recomendation>
         </Container>
     );
