@@ -24,6 +24,7 @@ mongoose.connect(process.env.MONGO, {
     throw err;
 });
 
+//cookie
 app.use(cookieParser())
 app.use(express.json())
 //Routes
