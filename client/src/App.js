@@ -21,7 +21,8 @@ const Wrapper = styled.div`
 `
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false)
+  const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem('mode')))
+
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <Container>

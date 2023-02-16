@@ -6,6 +6,7 @@ const Container = styled.div`
     position: sticky;
     top: 0;
     background-color: ${({theme}) =>theme.bgLighter};
+    color: ${({theme}) =>theme.textSoft};
     height: 56px;
 `
 const Wrapper = styled.div`
@@ -33,6 +34,7 @@ const Input = styled.input`
     border: none;
     background-color: transparent;
     width: 100%;
+    color: ${({theme}) =>theme.textSoft};
 `
 const Button = styled.button`
     padding: 5px 15px;

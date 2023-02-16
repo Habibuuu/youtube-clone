@@ -67,7 +67,8 @@ const Title = styled.h2`
 
 const Menu = ({ darkMode, setDarkMode }) => {
     const handleMode = () => {
-        setDarkMode(!darkMode)
+        setDarkMode(!darkMode);
+        localStorage.setItem("mode", JSON.stringify(!darkMode));
     }
 
     return (
