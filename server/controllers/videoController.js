@@ -1,5 +1,5 @@
 import { createError } from "../error.js"
-import UserModel from "../models/UserModel.js"
+import User from "../models/UserModel.js"
 import Video from "../models/VideoModel.js"
 
 export const addVideo = async (req, res, next) => {
@@ -13,7 +13,6 @@ export const addVideo = async (req, res, next) => {
 }
 
 export const updateVideo = async (req, res, next) => {
-    
     try {
         //get video
         const video = await Video.findById(req.params.id)
@@ -37,7 +36,6 @@ export const updateVideo = async (req, res, next) => {
 }
 
 export const deleteVideo = async (req, res, next) => {
-    
     try {
         //get video
         const video = await Video.findById(req.params.id)
@@ -58,7 +56,6 @@ export const deleteVideo = async (req, res, next) => {
 }
 
 export const getVideo = async (req, res, next) => {
-    
     try {
         const video = Video.findById(req.params.id)
         res.status(200).json(video)
@@ -68,55 +65,66 @@ export const getVideo = async (req, res, next) => {
 }
 
 export const addView = async (req, res, next) => {
-    
     try {
-        
-    } catch (error) {
-        
+        await Video.findByIdAndUpdate(req.params.id, {
+            $inc: { views: 1 }
+        })
+        res.status(200).json("The view has been increased.")
+    } catch (err) {
+        next(err)
     }
 }
 
 export const trend = async (req, res, next) => {
-    
     try {
-        
-    } catch (error) {
-        
+        const videos = Video.find().sort({ views: -1 })
+        res.status(200).json(videos)
+    } catch (err) {
+        next(err)
     }
 }
 
-export const random = async (req, res, next) => {
-    
+export const random = async (req, res, next) => { 
     try {
-        
-    } catch (error) {
-        
+        const videos = Video.aggregate([{
+            $sample: { size: 40 }
+        }])
+        res.status(200).json(videos)
+    } catch (err) {
+        next(err)
     }
 }
 
 export const sub = async (req, res, next) => {
-    
     try {
-        
-    } catch (error) {
-        
+        const user = await User.findById(req.user.id)
+        const subscribedChannels = user.subscribedUsers
+
+        const list = Promise.all(
+            subscribedChannels.map(async channelId => {
+                return await Video.find({ userId: channelId })
+            })
+        )
+        res.status(200).json(list.flat().sort((a, b) => b.createdAt - a.createdAt))
+    } catch (err) {
+        next(err)
     }
 }
 
 export const getByTag = async (req, res, next) => {
-    
     try {
-        
-    } catch (error) {
-        
+        const video = Video.findById(req.params.id)
+        res.status(200).json(video)
+    } catch (err) {
+        next(err)
     }
 }
 
 export const search = async (req, res, next) => {
-    
     try {
-        
-    } catch (error) {
-        
+        const video = Video.findById(req.params.id)
+        res.status(200).json(video)
+    } catch (err) {
+        next(err)
     }
 }
